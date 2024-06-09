@@ -1,0 +1,67 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>shipping calculator</title>
+      <style>
+        body{
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: rgb(167, 166, 166);
+      }
+      .title{
+        margin-left: 40px;
+        font-size: 2rem;
+      }
+      .js-cost-input{
+        margin-left: 100px;
+        background-color: rgb(218, 216, 216);
+        padding: 5px 2px 5px 2px;
+        border: none;
+      }
+      .note{
+        margin-left: 100px;
+        margin-top: 50px;
+      }
+      .js-total-cost{
+        margin-left: 100px;
+      }
+      button{
+        padding: 5px 3px 5px 3px;
+        background-color: orange;
+        border-radius: 3px;
+        border: none;
+      }
+
+       </style>
+    </head>
+    <body>
+      <div> 
+        <p class="title" > Online Shipping Calculator</p>
+      <input class="js-cost-input" placeholder="Enter Cost of Order">
+      <button onclick="calculateTotal();">Calculate</button>
+      <p class="js-total-cost"> </p>
+      <div class="note">
+        <p>Note:</p>
+        <p> Orders Under $40 = +$10 Shipping</p>
+        <p> Orders Over $40 = FREE Shipping</p>
+      </div>
+      </div>
+      
+      <script>
+function calculateTotal(){
+   const inputElement = document.querySelector('.js-cost-input');
+  let cost = Number(inputElement.value);
+   if (cost < 40 ){
+cost=cost+10;
+   }
+
+   document.querySelector('.js-total-cost')
+   .innerHTML = `Total = $${cost}`;
+
+}
+      </script>
+    </body>
+  </html>
